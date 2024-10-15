@@ -1,84 +1,68 @@
-const fs = require('fs').promises;
 
-class Data 
-{
-    constructor(students, courses) 
-    {
-        this.students = students;
-        this.courses = courses;
+const fs = require("fs")
+const path = require("path")
+
+let students = []
+
+
+fs.readFile(path.join(__dirname, "data", "students.json"), "utf-8", (err, data) => {
+    if (err) {
+        console.error("Error reading students.json:", err)
+        return
     }
-}
+    students = JSON.parse(data)
+})
 
-let dataCollection = null;
 
-async function initialize() 
-{
-    try 
-    {
-        const studentDataFromFile = await fs.readFile('D:/Webprogramming/data/students.json', 'utf8');
-        const courseDataFromFile = await fs.readFile('D:/Webprogramming/data/courses.json', 'utf8');
-
-        const students = JSON.parse(studentDataFromFile);
-        const courses = JSON.parse(courseDataFromFile);
-
-        dataCollection = new Data(students, courses);
-        return Promise.resolve();
-    } 
-    catch (error) 
-    {
-        return Promise.reject("Unable to read files.");
-    }
-}
-
-function getAllStudents() 
-{
+module.exports.getStudentsByCourse = function(course) {
     return new Promise((resolve, reject) => {
-        if (dataCollection.students.length === 0) 
-        {
-            reject("No results returned.");
-        } 
-        else 
-        {
-            resolve(dataCollection.students);
-        }
-    });
+        let studentsByCourse = students.filter(student => student.course == course)
+        
+        if (studentsByCourse.length > 0) resolve(studentsByCourse)
+        else reject("No Results Returned!")
+    })
 }
 
-function getTAs() 
-{
+module.exports.getStudentByNum = function(num) {
     return new Promise((resolve, reject) => {
-
-        const tas = dataCollection.students.filter(student => student.TA);
-
-        if (tas.length === 0) 
-        {
-            reject("No results returned.");
-        } 
-        else 
-        {
-            resolve(tas);
-        }
-    });
+        let student = students.find(student => student.studentNum == num)
+        
+        if (student) resolve(student)
+        else reject("No Results Returned!")
+    })
 }
 
-function getCourses() 
-{
+
+module.exports.getAllStudents = function() {
     return new Promise((resolve, reject) => {
-        if (dataCollection.courses.length === 0) 
-        {
-            reject("No results returned.");
-        } 
-        else 
-        {
-            resolve(dataCollection.courses);
-        }
-    });
+        if (students.length > 0) resolve(students)
+        else reject("No Results Returned!")
+    })
 }
 
-module.exports = 
-{
-    initialize,
-    getAllStudents,
-    getTAs,
-    getCourses
-};
+
+module.exports.getAllTAs = function() {
+    return new Promise((resolve, reject) => {
+        
+        if (students.length > 0) { 
+            const teachingAssistants = students.filter(student => student.role === "TA") // Adjust based on your data structure
+            resolve(teachingAssistants)
+        } else {
+            reject("No Results Returned!")
+        }
+    })
+}
+
+let courses = [
+    { id: 1, name: "Course 1", description: "Description for Course 1" },
+    { id: 2, name: "Course 2", description: "Description for Course 2" },
+    { id: 3, name: "Course 3", description: "Description for Course 3" }
+]
+
+module.exports.getAllCourses = function() {
+    return new Promise((resolve, reject) => {
+        if (courses.length > 0) resolve(courses)
+        else reject("No Courses Available!")
+    })
+}
+

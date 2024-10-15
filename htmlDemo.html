@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <header class="container text-center mt-5">
+
+        <h1>
+            Playground
+        </h1>
+        <p>
+            Introduction to tables, images, lists, audio, and video.
+        </p>
+    </header>
+
+
+    <section class="container mt-5">
+        <h2>
+            Tables
+        </h2>
+        <table class="table table-bordered">
+            <caption>
+                Sample 1
+            </caption>
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1, Col 1</td>
+                    <td rowspan="2">Rowspan Cell</td>
+                    <td>Row 1, Col 3</td>
+                </tr>
+                <tr>
+                    <td>Row 2, Col 1</td>
+                    <td>Row 2, Col 3</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Colspan Cell</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Table Footer</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <table class="table table-bordered mt-4">
+            <caption>
+                Sample 2
+            </caption>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Category 1</td>
+                    <td>Text Content</td>
+                    <td>Example 1</td>
+                </tr>
+                <tr>
+                    <td>Category 2</td>
+                    <td>Text Content</td>
+                    <td>Example 2</td>
+                </tr>
+                <tr>
+                    <td>Category 3</td>
+                    <td>Text Content</td>
+                    <td>Example 3</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">End of Table</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <p>
+            Demosntrating the creation of tables in html.
+        </p>
+    </section>
+
+
+    <section class="container mt-5">
+        <h2>
+            Lists
+        </h2>
+        <ol>
+            <li>Ordered  Item 1</li>
+            <li>Ordered Item 2</li>
+            <li>Ordered Item 3
+                <ul>
+                    <li>Unordered Item 1</li>
+                    <li>Unordered Item 2</li>
+                    <li>Unordered Item 3</li>
+                </ul>
+            </li>
+            <li>Ordered Item 4</li>
+            <li>Ordered Item 5</li>
+        </ol>
+
+        <p>
+            This part is a practice of how to create lists in html
+        </p>
+    </section>
+
+
+    <section class="container mt-5">
+        <h2>
+            Images
+        </h2>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Snowboarder_in_halfpipe.jpg" alt="Snowboarder" class="img-fluid">
+        <img fetchpriority="high" decoding="async" class="aligncenter size-full wp-image-1366" style="border: 1px solid black;" src="https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2.png" alt="" width="937" height="568" srcset="https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2.png 937w, https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2-300x182.png 300w, https://www.copahost.com/blog/wp-content/uploads/2019/07/imgsize2-768x466.png 768w" sizes="(max-width: 937px) 100vw, 937px">
+        <img style="display: block;-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://html.com/wp-content/uploads/flamingo.jpg" width="479" height="318">
+
+        <p>
+            Having completed our work with tables and lists, we will now focus on working with images.
+        </p>
+    </section>
+
+
+    <section class="container mt-5">
+        <h2>
+            Audio
+        </h2>
+        <audio controls>
+            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-audio.mp3" type="audio/mpeg">
+            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-audio.ogg" type="audio/ogg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <p>
+            After images, we try working with audio files on html.
+        </p>
+    </section>
+
+
+    <section class="container mt-5 mb-5">
+        <h2>
+            Video
+        </h2>
+        <video controls width="600">
+            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.mp4" type="video/mp4">
+            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.ogg" type="video/ogg">
+            <source src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.webm" type="video/webm">
+            Your browser does not support the video element.
+        </video>
+
+        <p>
+            This last section focuses on videos on html.
+        </p>
+    </section>
+
+</body>
+</html>
